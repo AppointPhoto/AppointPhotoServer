@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="UserManagement" namespace="/" extends="struts-default,json-default">
+
+		<action name="useraction" class="com.appointphoto.UserAction">
+			<result name="success">
+				/SuccessRegistration.jsp
+			</result>
+			<result name="fail">
+				/ErrorRegistration.jsp
+			</result>
+			<result name="exception">/Exception.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="exception" />
+		</action>
+		
+		<action name="userLoginAction" class="userLoginAction" method="checkUser">
+			<interceptor-ref name="json">  
+                <param name="contentType">application/json</param>  
+            </interceptor-ref>  
+            <result type="json" > 
+             <param name="root">result</param> 
+             </result>
+             <result name="exception">/Exception.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="exception" />
+		</action>
+	</package>
+
+</struts>
