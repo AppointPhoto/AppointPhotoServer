@@ -23,4 +23,8 @@ public boolean userExists(User u) {
 	return userDao.checkUserExistsWithName(u.getName());
 }
 
+public boolean userNameExists(String name) {
+	return userDao.checkUserExistsWithName(name);
+}
+
 }
