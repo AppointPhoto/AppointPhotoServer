@@ -10,9 +10,15 @@ import javax.persistence.Table;
 public class User {
 	private int id;
 	private String name;
+	private int sex;
+	
 	private String password;
 	private String emailAddress ; 
 	private String phoneNum; 
+	private String image;
+	private String location;
+	
+	
 	private int level;
 	
 	
@@ -69,6 +75,30 @@ public class User {
 
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
+	}
+
+	public int getSex() {
+		return sex;
+	}
+
+	public void setSex(int sex) {
+		this.sex = sex;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 }
