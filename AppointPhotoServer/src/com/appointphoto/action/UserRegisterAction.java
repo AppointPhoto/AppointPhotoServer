@@ -8,53 +8,54 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 //处理用户注冊
-public class UserRegisterAction extends ActionSupport implements ModelDriven<UserRegisterDto>{
+public class UserRegisterAction extends ActionSupport {
 
-	private UserRegisterDto userRegisterDto;
+	//private UserRegisterDto userRegisterDto;
 	//保存结果
 	private String result;
 	private UserManager um;
-	
+	private String name;	
+	private String password;
+	private String password2;
+	private String emailAddress ; 
+	private String phoneNum; 
+	private int level;
 	
 	public String registerUser() throws Exception{
+
+		System.out.println("pass1"+password);
+		System.out.println("pass2"+password2);
 		//檢查2次輸入密碼正確
-		if (userRegisterDto.getPassword().equals(userRegisterDto.getPassword2())) {
-			
+		if (password.equals(password2)) {
+			User u=new User();
+			u.setEmailAddress(emailAddress);
+			u.setName(name);
+			u.setLevel(level);
+			u.setPassword(password);
+			u.setPhoneNum(phoneNum);
+			//檢查有沒有用戶重名
+			if (um.userExists(u)) {
+				result="registed";
+			}
+			else {
+				try {			
+					
+					um.addUser(u);
+					result=SUCCESS;
+				} catch (Exception e) {
+					result=ERROR;
+				}
+			}
 		}
 		else {
 			result="passwordError";
 		}
-		//檢查有沒有用戶重名
-		if (um.userNameExists(userRegisterDto.getName())) {
-			result="registed";
-		}
-		else {
-			try {
-				User u=new User();
-				u.setName(userRegisterDto.getName());
-				u.setPassword(userRegisterDto.getPassword());
-				u.setEmailAddress(userRegisterDto.getEmailAddress());
-				u.setLevel(userRegisterDto.getLevel());
-				u.setPhoneNum(userRegisterDto.getEmailAddress());
-				
-				um.addUser(u);
-				result=SUCCESS;
-			} catch (Exception e) {
-				result=ERROR;
-			}
-		}
+		
 		return SUCCESS;
 	}
 
 
-	public UserRegisterDto getUserRegisterDto() {
-		return userRegisterDto;
-	}
-
-
-	public void setUserRegisterDto(UserRegisterDto userRegisterDto) {
-		this.userRegisterDto = userRegisterDto;
-	}
+	
 
 
 	public String getResult() {
@@ -67,13 +68,111 @@ public class UserRegisterAction extends ActionSupport implements ModelDriven<Use
 	}
 
 
-	@Override
-	public UserRegisterDto getModel() {
-		 if (null == userRegisterDto) {  
-			    userRegisterDto = new UserRegisterDto();  
-			  }  
-			  return userRegisterDto;  			 
-		
+	
+
+	public UserManager getUm() {
+		return um;
+	}
+
+
+	public void setUm(UserManager um) {
+		this.um = um;
+	}
+
+
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
+
+
+	public String getPassword2() {
+		return password2;
+	}
+
+
+
+
+
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
+
+
+
+
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+
+
+
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+
+
+
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+
+
+
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+
+
+
+
+
+	public int getLevel() {
+		return level;
+	}
+
+
+
+
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	
 	

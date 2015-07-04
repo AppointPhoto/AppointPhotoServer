@@ -12,6 +12,10 @@ public class UserRegisterDto implements Serializable{
 	private int level;
 	
 
+	public UserRegisterDto(){
+		
+	}
+
 	public String getPassword() {
 		return password;
 	}

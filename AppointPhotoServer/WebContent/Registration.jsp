@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action="useraction.action">
+<form method="post" action="userLoginAction.action">
 username<input name="username"> <br>
 password<input type="password" name="password"> <br>
 password2<input type="password" name="password2"> <br>
