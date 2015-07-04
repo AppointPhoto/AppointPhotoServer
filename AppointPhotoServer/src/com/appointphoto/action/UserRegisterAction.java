@@ -54,10 +54,7 @@ public class UserRegisterAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-
-	
-
-
+ 
 	public String getResult() {
 		return result;
 	}
