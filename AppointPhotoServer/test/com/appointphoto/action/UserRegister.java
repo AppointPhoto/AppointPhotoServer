@@ -19,6 +19,7 @@ public class UserRegister {
 	
 		try {
 			String urlStr="http://localhost:8080/AppointPhotoServer/userRegisterAction";  
+			String testString="test";
 			JSONObject jsonObject = new JSONObject();	
 			//User u = new User();
 			//u.setName("b");
@@ -33,19 +34,27 @@ public class UserRegister {
 			 HttpURLConnection connection = (HttpURLConnection) url.openConnection(); 
 			 connection.setDoOutput(true); 
 	         connection.setDoInput(true); 
-	         connection.setRequestMethod("GET"); 
+	         connection.setRequestMethod("POST"); 
 	         connection.setUseCaches(false); 
 	         connection.setInstanceFollowRedirects(true); 
 //	         connection.setRequestProperty("Content-Type", 
 //	                    "application/x-www-form-urlencoded"); 
-
+	        // connection.setRequestProperty("testString",testString);
+	         
 	         connection.setRequestProperty("Content-Type", 
 	                    "application/json");
 	         connection.connect(); 
 	         DataOutputStream out = new DataOutputStream(connection.getOutputStream()); 
-	         out.writeBytes(jsonObject.toString()); 
+	         out.writeBytes(jsonObject.toString()); 	         
+	        /* connection.setRequestProperty("Content-Type", 
+	                    "application/x-www-form-urlencoded");
+	         
+	         out.writeBytes(testString);*/
+	         
 	         out.flush(); 
+	         
 	         out.close(); 
+	         
 	         //读取响应 
 	         BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream())); 
 	         String lines; 

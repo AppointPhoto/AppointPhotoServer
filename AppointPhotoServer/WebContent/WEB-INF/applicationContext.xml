@@ -75,5 +75,8 @@
     <bean id="userRegisterAction" class="com.appointphoto.action.UserRegisterAction" scope="prototype">
         <property name="um" ref="UserManager"></property>
     </bean>
+     <bean id="userUploadImageAction" class="com.appointphoto.action.UserUploadImageAction" scope="prototype">
+        
+    </bean>
 </beans>
 	 

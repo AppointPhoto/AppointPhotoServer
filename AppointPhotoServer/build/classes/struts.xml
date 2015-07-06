@@ -7,7 +7,9 @@
 
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
-
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.multipart.maxSize" value="5120000"/>
+   
 	<package name="UserManagement" namespace="/" extends="struts-default,json-default">
 
 		<action name="useraction" class="com.appointphoto.UserAction">
@@ -23,9 +25,10 @@
 		</action>
 		
 		<action name="userLoginAction" class="userLoginAction" method="checkUser">
-			<interceptor-ref name="json">  
+			<!-- <interceptor-ref name="json">  
                 <param name="contentType">application/json</param>  
             </interceptor-ref>  
+             -->
             <result type="json" > 
              <param name="root">result</param> 
              </result>
@@ -36,16 +39,36 @@
 		
 		
 		<action name="userRegisterAction" class="userRegisterAction" method="registerUser">
-			<interceptor-ref name="json">  
+			 <interceptor-ref name="json">  
                 <param name="contentType">application/json</param>  
             </interceptor-ref>  
+            
             <result type="json" > 
-             <param name="root">result</param> 
+              <param name="root">result</param> 
              </result>
              <result name="exception">/Exception.jsp</result>
 			<exception-mapping exception="java.lang.Exception"
 				result="exception" />
 		</action>
+		
+		<action name="UserUploadImageAction" method="execute" class="userUploadImageAction">
+            <param name="savePath">/home/beyond</param>
+            <result name="success">SuccessRegistration.jsp</result>
+            <result name="input">/upload.jsp</result>
+             
+            <!-- 拦截器堆栈的修改 -->
+            <interceptor-ref name="defaultStack">
+                <!-- 最大上传的字节 -->
+                <param name="fileUpload.maximumSize">
+                    5120000
+                </param>
+                <param name="fileUpload.allowedTypes">
+                    image/png,
+                    image/jpeg,
+                    application/msword
+                </param>
+            </interceptor-ref>
+        </action>
 	</package>
 
 </struts>
