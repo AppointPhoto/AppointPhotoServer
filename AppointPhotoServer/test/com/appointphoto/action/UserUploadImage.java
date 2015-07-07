@@ -25,15 +25,19 @@ public class UserUploadImage {
         try {  
         	 String requestUrl = "http://localhost:8080/AppointPhotoServer/UserUploadImageAction";
         	File imageFile=new File("/home/beyond/Src/test.jpg");
+        	File imageFile2=new File("/home/beyond/Src/test2.jpg");
         	// 请求普通信息  
             Map<String, String> params = new HashMap<String, String>();  
             // params.put("filename", "张三");  
             params.put("name", "张三");  
             params.put("fileName", imageFile.getName());  
             // 上传文件  
-            FormFile formfile = new FormFile(imageFile.getName(), imageFile,  
-                    "image", "application/octet-stream");  
-              
+            
+            FormFile formfile[] ={ new FormFile(imageFile.getName(), imageFile,  
+                    "image", "application/octet-stream"),
+                    new FormFile(imageFile2.getName(), imageFile,  
+                            "image", "application/octet-stream")
+            };
             SocketHttpRequester.post(requestUrl, params, formfile); 
         
         }

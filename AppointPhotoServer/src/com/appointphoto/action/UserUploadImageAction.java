@@ -33,7 +33,9 @@ public class UserUploadImageAction extends ActionSupport {
     // 接受依赖注入的属性  
     private String savePath;  
     
-    private Map<String, String> params;
+    private String name;
+    
+    
   
     @Override  
     public String execute() {  
@@ -51,7 +53,7 @@ public class UserUploadImageAction extends ActionSupport {
             System.out.println("文件名称: "+imageFileName);  
             System.out.println("文件大小: "+image.length());  
             System.out.println("文件类型: "+imageContentType);  
-           // System.out.println("name: "+params.get("name").toString());  
+            System.out.println("name: "+name);  
             
               
             fos = new FileOutputStream(getSavePath() + "/" + getImageFileName());  
@@ -129,11 +131,13 @@ public class UserUploadImageAction extends ActionSupport {
         }  
     }
 
-	public Map<String, String> getParams() {
-		return params;
+	public String getName() {
+		return name;
 	}
 
-	public void setParams(Map<String, String> params) {
-		this.params = params;
-	}  
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 }
