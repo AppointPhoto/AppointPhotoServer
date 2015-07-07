@@ -52,7 +52,7 @@
 		</action>
 		
 		<action name="UserUploadImageAction" method="execute" class="userUploadImageAction">
-            <param name="savePath">/home/beyond</param>
+            <param name="savePath">/UserPicture</param>
             <result name="success">SuccessRegistration.jsp</result>
             <result name="input">/upload.jsp</result>
              
@@ -62,11 +62,12 @@
                 <param name="fileUpload.maximumSize">
                     5120000
                 </param>
-                <param name="fileUpload.allowedTypes">
+                <!--  <param name="fileUpload.allowedTypes">
                     image/png,
                     image/jpeg,
                     application/msword
                 </param>
+                -->
             </interceptor-ref>
         </action>
 	</package>
