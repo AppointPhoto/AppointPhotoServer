@@ -1,4 +1,4 @@
-package com.appointphoto.action;  
+package com.appointphoto.utils;  
 
 import java.io.File;  
 import java.io.FileInputStream;  

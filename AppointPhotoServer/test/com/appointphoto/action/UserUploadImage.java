@@ -18,6 +18,9 @@ import net.sf.json.JSONObject;
 
 import org.junit.Test;
 
+import com.appointphoto.utils.FormFile;
+import com.appointphoto.utils.SocketHttpRequester;
+
 public class UserUploadImage {
 	@Test
 	public void test() {	
