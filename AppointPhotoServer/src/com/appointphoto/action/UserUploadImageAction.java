@@ -98,7 +98,6 @@ public class UserUploadImageAction extends ActionSupport {
 		close(fos, fis);
     	} catch (Exception e) {
 			return false;
-			// TODO: handle exception
 		}
     	
     	return true;

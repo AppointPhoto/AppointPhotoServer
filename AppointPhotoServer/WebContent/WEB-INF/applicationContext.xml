@@ -27,6 +27,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.appointphoto.model.User</value>
+				<value>com.appointphoto.model.UserPictures</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

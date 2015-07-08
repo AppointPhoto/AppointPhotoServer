@@ -1,8 +1,16 @@
 package com.appointphoto.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -16,11 +24,11 @@ public class User {
 	private String emailAddress ; 
 	private String phoneNum; 
 	private String image;
-	private String location;
-	
-	
+	private String location;	
 	private int level;
 	
+	//用戶對應的圖片@one to many
+	private Set<UserPictures> pictures=new HashSet<UserPictures>();	
 	
 
 	@Id
@@ -99,6 +107,18 @@ public class User {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	@OneToMany(mappedBy="user" ,cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	//@JoinColumn(name="id")
+	@OrderBy(value= "id ASC")
+	public Set<UserPictures> getPictures() {
+		return pictures;
+	}
+
+
+	public void setPictures(Set<UserPictures> pictures) {
+		this.pictures = pictures;
 	}
 
 }

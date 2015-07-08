@@ -1,104 +1,61 @@
 package com.appointphoto.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="_User")
+@Table(name="_U_Photo")
 public class UserPictures {
 	private int id;
-	private String name;
-	private int sex;
+	private int uId;
+	private String captain;
+	private String pic;	
+	private User user;
 	
-	private String password;
-	private String emailAddress ; 
-	private String phoneNum; 
-	private String image;
-	private String location;
-	
-	
-	private int level;
-	
-	
-
 	@Id
 	@GeneratedValue
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
 	
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
-	public String getPhoneNum() {
-		return phoneNum;
-	}
-
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
-	}
-
 	
-
-	public int getLevel() {
-		return level;
+	public int getuId() {
+		return uId;
 	}
-
-	public void setLevel(int level) {
-		this.level = level;
+	public void setuId(int uId) {
+		this.uId = uId;
 	}
-
-	public String getEmailAddress() {
-		return emailAddress;
+	public String getCaptain() {
+		return captain;
 	}
-
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+	public void setCaptain(String captain) {
+		this.captain = captain;
 	}
-
-	public int getSex() {
-		return sex;
+	public String getPic() {
+		return pic;
 	}
-
-	public void setSex(int sex) {
-		this.sex = sex;
+	public void setPic(String pic) {
+		this.pic = pic;
 	}
-
-	public String getImage() {
-		return image;
+	
+	@ManyToOne(cascade=CascadeType.REFRESH,optional=false)
+	@JoinColumn(name="uId", referencedColumnName="id",nullable=false,insertable=false, updatable=false)
+	//@JoinColumn(name="uId",insertable=false, updatable=false)
+	public User getUser() {
+		return user;
 	}
-
-	public void setImage(String image) {
-		this.image = image;
+	
+	
+	public void setUser(User user) {
+		this.user = user;
 	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
+	
 }
