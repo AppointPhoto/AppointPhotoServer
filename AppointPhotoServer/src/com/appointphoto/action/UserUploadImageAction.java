@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,6 +17,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.appointphoto.dto.UserRegisterDto;
 import com.appointphoto.model.User;
+import com.appointphoto.model.UserPictures;
 import com.appointphoto.service.UserManager;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -38,6 +40,9 @@ public class UserUploadImageAction extends ActionSupport {
     private String name;
     private String filePath1; 
     private String filePath2; 
+    
+    private UserManager um;
+    private Set<UserPictures> pictures;
   
     @Override  
     public String execute() {  
@@ -49,7 +54,15 @@ public class UserUploadImageAction extends ActionSupport {
         	filePath2=getSavePath() + "/" + name + "/" + getFileName2();  
             if(makeUserDir(getSavePath() + "/" + name)&&saveUserPictures(filePath1, image1)&&saveUserPictures(filePath2, image2)){
             	System.out.println("文件上传成功");  
-            }              
+            }
+            User user =um.getUserWithname(name);
+            UserPictures picture1 = new UserPictures();
+            picture1.setCaptain(fileName1);
+            picture1.setUser(user);
+            picture1.setuId(user.getId());
+            um.addUserPictures(picture1);
+            
+            //picture1.setUser(user);
             
         } catch (Exception e) {  
             System.out.println("文件上传失败");  
@@ -188,6 +201,38 @@ public class UserUploadImageAction extends ActionSupport {
 
 	public void setFileName2(String filename2) {
 		this.fileName2 = filename2;
+	}
+
+	public String getFilePath1() {
+		return filePath1;
+	}
+
+	public void setFilePath1(String filePath1) {
+		this.filePath1 = filePath1;
+	}
+
+	public String getFilePath2() {
+		return filePath2;
+	}
+
+	public void setFilePath2(String filePath2) {
+		this.filePath2 = filePath2;
+	}
+
+	public UserManager getUm() {
+		return um;
+	}
+
+	public void setUm(UserManager um) {
+		this.um = um;
+	}
+
+	public Set<UserPictures> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(Set<UserPictures> pictures) {
+		this.pictures = pictures;
 	}
 
 

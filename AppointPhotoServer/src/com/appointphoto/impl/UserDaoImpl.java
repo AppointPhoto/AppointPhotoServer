@@ -39,4 +39,15 @@ public class UserDaoImpl implements UserDao {
 		hibernateTemplate.save(u);
 		
 	}
+
+	@Override
+	public User getUserWithName(String name) {
+		List<User>users=(List<User>)hibernateTemplate.find("from User u where u.name='"+ name +"'");
+		if (users!=null && users.size()!=0) {
+			return users.get(0);
+		}	
+		else {
+			return null;
+		}
+	}
 }

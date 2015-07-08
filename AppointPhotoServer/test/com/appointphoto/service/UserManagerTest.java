@@ -26,8 +26,7 @@ public class UserManagerTest {
 		//um.addUser(u);
 		boolean exists = um.userExists(u);
 		if(!exists) {
-			um.addUser(u);
-			
+			um.addUser(u);			
 			Assert.assertEquals(true, um.userExists(u));
 			
 		} else {
@@ -45,20 +44,12 @@ public class UserManagerTest {
 		UserPictures pictures =new UserPictures();
 		pictures.setCaptain("test");
 		pictures.setuId(2);
-		pictures.setPic("/home/beyond/GitHubSrc/UserPictures/beyond/test.jpg");
+		pictures.setPic("/home/beyond/GitHubSrc/UserPictures/beyond/test2.jpg");
 		Set<UserPictures> set=new HashSet<UserPictures>();
 		set.add(pictures);
 //		u.getPictures().add(pictures);
 		u.setPictures(set);
 		//um.addUser(u);
-		boolean exists = um.userExists(u);
-		if(!exists) {
-			um.addUser(u);
-			
-			Assert.assertEquals(true, um.userExists(u));
-			
-		} else {
-			Assert.fail("not added");
-		}
+		um.addUserPictures(pictures);
 	}
 }
