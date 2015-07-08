@@ -8,7 +8,8 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="true" />
     <constant name="struts.i18n.encoding" value="UTF-8"/>
-    <constant name="struts.multipart.maxSize" value="5120000"/>
+    <constant name="struts.multipart.maxSize" value="20480000"/>
+    <constant name="struts.multipart.saveDir" value="//home//beyond//GitHubSrc//UserPictures"/>
    
 	<package name="UserManagement" namespace="/" extends="struts-default,json-default">
 
@@ -52,7 +53,7 @@
 		</action>
 		
 		<action name="UserUploadImageAction" method="execute" class="userUploadImageAction">
-            <param name="savePath">/UserPicture</param>
+            <param name="savePath">/home/beyond/GitHubSrc/UserPictures</param>
             <result name="success">SuccessRegistration.jsp</result>
             <result name="input">/upload.jsp</result>
              

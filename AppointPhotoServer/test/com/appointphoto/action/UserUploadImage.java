@@ -26,22 +26,26 @@ public class UserUploadImage {
 	public void test() {	
 		
         try {  
-        	 String requestUrl = "http://localhost:8080/AppointPhotoServer/UserUploadImageAction";
-        	File imageFile=new File("/home/beyond/Src/test.jpg");
+        	String requestUrl = "http://localhost:8080/AppointPhotoServer/UserUploadImageAction";
+        	File imageFile1=new File("/home/beyond/Src/test.jpg");
         	File imageFile2=new File("/home/beyond/Src/test2.jpg");
         	// 请求普通信息  
             Map<String, String> params = new HashMap<String, String>();  
-            // params.put("filename", "张三");  
-            params.put("name", "张三");  
-            params.put("fileName", imageFile.getName());  
+            // params.put("filename", "beyond");  
+            params.put("name", "beyond");  
+            params.put("fileName1", imageFile1.getName());  
+            params.put("fileName2", imageFile2.getName()); 
             // 上传文件  
             
-            FormFile formfile[] ={ new FormFile(imageFile.getName(), imageFile,  
-                    "image", "application/octet-stream"),
-                    new FormFile(imageFile2.getName(), imageFile,  
-                            "image", "application/octet-stream")
-            };
-            SocketHttpRequester.post(requestUrl, params, formfile); 
+            FormFile formfile1 = new FormFile(imageFile1.getName(), imageFile1,  
+                    "image1", "application/octet-stream");
+            FormFile formfile2= new FormFile(imageFile2.getName(), imageFile2,  
+                            "image2", "application/octet-stream");
+            FormFile [] formfiles=new FormFile[2];
+            formfiles[0]=formfile1;
+            formfiles[1]=formfile2;
+            
+            SocketHttpRequester.post(requestUrl, params, formfiles); 
         
         }
         

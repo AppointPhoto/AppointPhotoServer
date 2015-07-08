@@ -25,74 +25,98 @@ import com.opensymphony.xwork2.ModelDriven;
 public class UserUploadImageAction extends ActionSupport {
 
 	 // 上传文件域  
-    private File image;  
+    private File image1;  
+    private File image2; 
     // 上传文件类型  
     private String imageContentType;  
     // 封装上传文件名  
-    private String imageFileName;  
+    private String fileName1;  
+    private String fileName2; 
     // 接受依赖注入的属性  
     private String savePath;  
     
     private String name;
-    
-    
+    private String filePath1; 
+    private String filePath2; 
   
     @Override  
     public String execute() {  
-        HttpServletRequest request=ServletActionContext.getRequest();  
+       // HttpServletRequest request=ServletActionContext.getRequest();  
         FileOutputStream fos = null;  
         FileInputStream fis = null;  
         try {  
-            System.out.println("获取Android端传过来的普通信息：");  
-            //System.out.println("用户名："+request.getParameter("username"));  
-            //System.out.println("密码："+request.getParameter("pwd"));  
-            //System.out.println("年龄："+request.getParameter("age"));  
-            System.out.println("文件名："+request.getParameter("fileName"));  
-            System.out.println("获取Android端传过来的文件信息：");  
-            System.out.println("文件存放目录: "+getSavePath());  
-            System.out.println("文件名称: "+imageFileName);  
-            System.out.println("文件大小: "+image.length());  
-            System.out.println("文件类型: "+imageContentType);  
-            System.out.println("name: "+name);  
+        	filePath1=getSavePath() + "/" + name + "/" + getFileName1();  
+        	filePath2=getSavePath() + "/" + name + "/" + getFileName2();  
+            if(makeUserDir(getSavePath() + "/" + name)&&saveUserPictures(filePath1, image1)&&saveUserPictures(filePath2, image2)){
+            	System.out.println("文件上传成功");  
+            }              
             
-              
-            fos = new FileOutputStream(getSavePath() + "/" + getImageFileName());  
-            fis = new FileInputStream(getImage());  
-            byte[] buffer = new byte[1024];  
-            int len = 0;  
-            while ((len = fis.read(buffer)) != -1) {  
-                fos.write(buffer, 0, len);  
-            }  
-            System.out.println("文件上传成功");  
         } catch (Exception e) {  
             System.out.println("文件上传失败");  
-            e.printStackTrace();  
+            e.printStackTrace(); 
+            return ERROR;
         } finally {  
             close(fos, fis);  
         }  
         return SUCCESS;  
     }  
-  
+    
+    //创建用户目录
+    public boolean makeUserDir(String fileDir) {
+    	File file =new File(fileDir);
+    	if (!file.isDirectory()||!file.exists())      
+    	{         	      
+    	    file.mkdir();    
+    	} else   
+    	{  
+    	    System.out.println("//目录存在");  
+    	}  
+    	return true;
+    }
+    
+    public boolean saveUserPictures(String filePath ,File file) {
+    	 FileOutputStream fos = null;  
+         FileInputStream fis = null; 
+    	try {
+    		System.out.println("获取Android端传过来的普通信息：");  
+            //System.out.println("用户名："+request.getParameter("username"));  
+            //System.out.println("密码："+request.getParameter("pwd"));  
+            //System.out.println("年龄："+request.getParameter("age")); 
+            
+            System.out.println("文件存放目录: "+filePath);  
+            //System.out.println("文件名称: "+file.getName());                         
+            System.out.println("文件大小: "+file.length());             
+            System.out.println("用户名: "+name);  
+    		 
+        	fos = new FileOutputStream(filePath);  
+            fis = new FileInputStream(file);  
+            byte[] buffer = new byte[1024];  
+            int len = 0;  
+            while ((len = fis.read(buffer)) != -1) {  
+                fos.write(buffer, 0, len);  
+            }  
+		close(fos, fis);
+    	} catch (Exception e) {
+			return false;
+			// TODO: handle exception
+		}
+    	
+    	return true;
+	}
     /** 
      * 文件存放目录 
      *  
      * @return 
      */  
     public String getSavePath() throws Exception{  
-        return ServletActionContext.getServletContext().getRealPath(savePath);   
+        return savePath;   
     }  
   
     public void setSavePath(String savePath) {  
         this.savePath = savePath;  
     }  
   
-    public File getImage() {  
-        return image;  
-    }  
-  
-    public void setImage(File image) {  
-        this.image = image;  
-    }  
+   
   
     public String getImageContentType() {  
         return imageContentType;  
@@ -102,13 +126,7 @@ public class UserUploadImageAction extends ActionSupport {
         this.imageContentType = imageContentType;  
     }  
   
-    public String getImageFileName() {  
-        return imageFileName;  
-    }  
   
-    public void setImageFileName(String imageFileName) {  
-        this.imageFileName = imageFileName;  
-    }  
   
     private void close(FileOutputStream fos, FileInputStream fis) {  
         if (fis != null) {  
@@ -137,6 +155,40 @@ public class UserUploadImageAction extends ActionSupport {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	
+
+	public File getImage1() {
+		return image1;
+	}
+
+	public void setImage1(File image1) {
+		this.image1 = image1;
+	}
+
+	public File getImage2() {
+		return image2;
+	}
+
+	public void setImage2(File image2) {
+		this.image2 = image2;
+	}
+
+	public String getFileName1() {
+		return fileName1;
+	}
+
+	public void setFileName1(String filename1) {
+		this.fileName1 = filename1;
+	}
+
+	public String getFileName2() {
+		return fileName2;
+	}
+
+	public void setFileName2(String filename2) {
+		this.fileName2 = filename2;
 	}
 
 
