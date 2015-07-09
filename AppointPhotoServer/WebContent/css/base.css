@@ -53,12 +53,12 @@ select{ display:inline-block;}
 .cell_bk{display:table; width:100%; table-layout:fixed; word-wrap:break-word;}
 /*单行文字溢出虚点显示*/
 .ell{text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
-i{ background:url(image/icon.png) no-repeat; display:inline-block; vertical-align:middle;}
+i{ background:url(../images/icon.png) no-repeat; display:inline-block; vertical-align:middle;}
 .ren{ width:25px; height:25px; background-position:-223px -100px;}
 .jian{width:25px; height:25px; background-position:-255px -100px;}
-.map-icon{width: 13px;height: 17px;background: url(image/icon.png) -476px 0 no-repeat;}
-.cy{ width:16px; height:12px; background:url(image/icon.png) -543px -50px no-repeat; vertical-align:middle;}
-.time-i{ width:12px; height:15px; background:url(imagesicon.png) -526px -52px no-repeat; margin-right:3px;}
+.map-icon{width: 13px;height: 17px;background: url(../images/icon.png) -476px 0 no-repeat;}
+.cy{ width:16px; height:12px; background:url(../images/icon.png) -543px -50px no-repeat; vertical-align:middle;}
+.time-i{ width:12px; height:15px; background:url(../images/icon.png) -526px -52px no-repeat; margin-right:3px;}
 .m{ width:960px; margin:0 auto 35px; min-height:610px; background:#FFF;}
 .nav_m{ margin-top:-5px;}
 .h195{ height:160px;}
@@ -70,7 +70,7 @@ i{ background:url(image/icon.png) no-repeat; display:inline-block; vertical-alig
 .header_Bar .header h1 img{ display:block; width:247px; height:50px; margin-top:20px;}
 .header_Bar .header .icon{ float:right; margin-top:22px; color:#666; font-weight:bold; font-size:12px;}
 .header_Bar .header .icon span{ width:42px; text-align:center; display:inline-block; margin-left:25px;}
-.header_Bar .header .icon span em{ width:30px; height:31px; background:url(imagesicon.png) no-repeat; display:block; margin:0 auto;}
+.header_Bar .header .icon span em{ width:30px; height:31px; background:url(../images/icon.png) no-repeat; display:block; margin:0 auto;}
 .header_Bar .header .icon span em.pz{ background-position:-376px -50px;}
 .header_Bar .header .icon span em.fb{background-position:-409px -50px;}
 .header_Bar .header .icon span em.bz{background-position:-442px -50px;}
@@ -78,7 +78,7 @@ i{ background:url(image/icon.png) no-repeat; display:inline-block; vertical-alig
 .footer_bar{ width:100%; background:#E95431; border-bottom:5px solid #666; height:100px;}
 .footer_bar .ft-sm{ overflow:hidden; width:960px; margin:15px auto;}
 .footer_bar .ft-sm .ft-nav{ float:left; margin-top:6px;}
-.footer_bar .ft-sm .ft-nav li{ float:left; margin-right:50px; background:url(image/footer-li.png) right center no-repeat; padding-right:50px;}
+.footer_bar .ft-sm .ft-nav li{ float:left; margin-right:50px; background:url(../images/footer-li.png) right center no-repeat; padding-right:50px;}
 .footer_bar .ft-sm .ft-nav li.last{ background:none;}
 .footer_bar .ft-sm .ft-nav li a{ color:#FFF; font-size:12px; display:block; line-height:22px;}
 .footer_bar .ft-sm .ft-nav li a:hover{text-decoration:underline;}
@@ -95,14 +95,14 @@ i{ background:url(image/icon.png) no-repeat; display:inline-block; vertical-alig
 .nav_Bar .nav .user a{ width:90px; height:35px; text-align:center; display:inline-block; color:#FFF;}
 .nav_Bar .nav .user a.myp{}
 .nav_Bar .nav .user a.exit{}
-.nav_Bar .nav .user a i{ width:16px; height:16px; display:inline-block; background:url(image/icon.png) no-repeat; vertical-align:middle; margin-right:3px;}
+.nav_Bar .nav .user a i{ width:16px; height:16px; display:inline-block; background:url(../images/icon.png) no-repeat; vertical-align:middle; margin-right:3px;}
 .nav_Bar .nav .user .myp i{ background-position:-481px -50px;}
 .nav_Bar .nav .user .exit i{ background-position:-502px -50px;}
 /*social*/
-.social_Bar{ width:100%; height:80px; background:url(image/blank.png) repeat;position:absolute; top:125px; z-index:9;}
+.social_Bar{ width:100%; height:80px; background:url(../images/blank.png) repeat;position:absolute; top:125px; z-index:9;}
 .social{ width:960px; margin:0 auto;}
 .social .btn{ float:right; font-size:14px; color:#FFF; margin-top:20px;}
-.social .btn a{width: 39px;height: 38px;display: inline-block;background: url(image/icon.png) no-repeat; margin-left:10px;vertical-align: middle;}
+.social .btn a{width: 39px;height: 38px;display: inline-block;background: url(../images/icon.png) no-repeat; margin-left:10px;vertical-align: middle;}
 .social .btn a.sina{background-position:-256px 0;}
 .social .btn a.ten_qq{background-position:-296px 0;}
 /*信息告知框*/
@@ -113,22 +113,22 @@ i{ background:url(image/icon.png) no-repeat; display:inline-block; vertical-alig
 /*警告按钮矿*/
 .confirm_wrap{}
 /*模态层*/
-#shade {width:100%; height:100%; background:url('image/blank.png'); position:fixed;left:0; top:0;z-index:10000;}
+#shade {width:100%; height:100%; background:url('../images/blank.png'); position:fixed;left:0; top:0;z-index:10000;}
 /*下拉框模拟*/
 .dropdown {outline:none;display:inline-block; height:30px; margin:20px 0;}
 .dropdown div {display:block; /*fix bug*/}
 .dropdown ul{position:absolute;display:none;margin:0;padding:0;float:left;clear:both;border:1px solid #ddd; background:#FFF;}
 .dropdown ul li{text-indent:10px;margin:0;padding:0;display:block;cursor:default;background:#FFF;height:30px; line-height:30px; color:#9c9c9c;}
 .dropselectbox {margin-right:15px;}
-.dropdown h4{height:38px; text-indent:10px; line-height:38px; color:#9c9c9c; font-weight:normal; cursor:pointer; border:1px solid #ddd; background:#f8f8f8 url(image/select.png) 124px center no-repeat;}
+.dropdown h4{height:38px; text-indent:10px; line-height:38px; color:#9c9c9c; font-weight:normal; cursor:pointer; border:1px solid #ddd; background:#f8f8f8 url(../images/select.png) 124px center no-repeat;}
 .dropdown ul{ width:150px;overflow:hidden;} 
 .dropdown ul li{ display:block;}
 .dropdown ul li.over{background:#E95231; color:#FFF; }
 /*登录弹出*/
 .Yuepai_tc{ background:#FFF; position:fixed; left:50%; top:50%; z-index:11;}
 .Yuepai_tc .Login{ width:600px; height:450px; margin:-225px 0 0 -300px;}
-.Login a.colse{ width:27px; height:27px; display:block; background:url(image/icon.png) -78px -65px no-repeat; float:right; margin:10px 10px 15px 0;}
-.Login h3{ width:100%; height:51px; background:url(image/tc_logo.png) center center no-repeat; margin-bottom:45px; clear:both; text-indent:-99999em;}
+.Login a.colse{ width:27px; height:27px; display:block; background:url(../images/icon.png) -78px -65px no-repeat; float:right; margin:10px 10px 15px 0;}
+.Login h3{ width:100%; height:51px; background:url(../images/tc_logo.png) center center no-repeat; margin-bottom:45px; clear:both; text-indent:-99999em;}
 .Login .dl-login{ margin-left:140px;}
 .Yuepai_tc .clear-input{ border:1px solid #ddd; background:#f8f8f8; width:320px;text-indent:10px; font-size:14px; padding:10px 0; height:18px; line-height:18px; margin-bottom:15px;}
 .Yuepai_tc .clear-input:focus{ background:#FFF; color:#333;}
@@ -137,7 +137,7 @@ i{ background:url(image/icon.png) no-repeat; display:inline-block; vertical-alig
 .Login .switch a{ color:#E95431;}
 .Login .switch a:hover{ text-decoration:underline;}
 .Login .bottoms{ margin:35px 0 0 140px;clear:both; overflow:hidden;}
-.Login .bottoms a{width:51px;height:50px;display:inline-block;background:url(image/icon.png) no-repeat;margin:0 10px 0 10px;vertical-align:middle;}
+.Login .bottoms a{width:51px;height:50px;display:inline-block;background:url(../images/icon.png) no-repeat;margin:0 10px 0 10px;vertical-align:middle;}
 .Login .bottoms a.sina{background-position:-153px 0;}
 .Login .bottoms a.ten_qq{background-position:-205px 0;}
 /*绑定手机*/
@@ -148,9 +148,9 @@ i{ background:url(image/icon.png) no-repeat; display:inline-block; vertical-alig
 .Bd_phone .send{ width:110px; height:40px; float:left; background:#999; font-size:14px; color:#FFF; text-align:center; line-height:40px; margin-left:11px;}
 /*popup*/
 .Sub_Popup{ width:800px; height:480px; margin:-280px 0 0 -400px; position:fixed; left:50%; top:50%; background:#FFF;}
-.Sub_Popup .pic{ width:352px; height:380px; margin:50px 0 0 55px; float:left; background:url(image/pic.jpg) no-repeat;}
+.Sub_Popup .pic{ width:352px; height:380px; margin:50px 0 0 55px; float:left; background:url(../images/pic.jpg) no-repeat;}
 .Sub_Popup .t{ float:right; width:334px; font-size:22px; color:#333; padding-top:125px; margin-right:45px;}
-.Sub_Popup .t .logo{ width:100%; height:51px; background:url(image/tc_logo.png) center center no-repeat; text-indent:-999em; margin-bottom:35px;}
+.Sub_Popup .t .logo{ width:100%; height:51px; background:url(../images/tc_logo.png) center center no-repeat; text-indent:-999em; margin-bottom:35px;}
 .Sub_Popup .t em{ color:#E95331;}
 .Sub_Popup .t a{ width:230px; height:50px; border-radius:40px; display:inline-block; background:#E95431; color:#FFF; text-align:center; line-height:50px; margin:30px 0 0 50px;}
 /*page*/
@@ -164,17 +164,17 @@ i{ background:url(image/icon.png) no-repeat; display:inline-block; vertical-alig
 .page .list input{ width:38px; height:18px; border:1px solid #ddd; text-align:center; line-height:20px; margin:0 5px;  color:#999;}
 /*g0-top*/
 .gotop{ width:100px; height:90px; border:1px solid #f8f8f8; background:#f8f8f8; display:block; text-align:center; position:fixed; left:50%; margin-left:360px; top:300px; display:none;}
-.gotop i{ width:15px; height:32px; background:url(image/icon.png) -233px -56px no-repeat; margin-top:15px;}
+.gotop i{ width:15px; height:32px; background:url(../images/icon.png) -233px -56px no-repeat; margin-top:15px;}
 .gotop span{ display:block; color:#999; font-size:14px;}
 .gotop:hover{ border:1px solid #ddd; background:#fff;}
 .gotop:hover i{ background-position:-253px -56px;}
 .gotop:hover span{ color:#E95331;}
 /*星级*/
-.star{ width:60px; height:10px; background:url(image/star.png) no-repeat; display:inline-block; margin-left:5px;}
+.star{ width:60px; height:10px; background:url(../images/star.png) no-repeat; display:inline-block; margin-left:5px;}
 .star.n5{ background-position:0 0;}
 /*由我添加的css   */
 #yp-process{position:fixed;top:180px;left:0px;width:70px;text-align:center;}
-#yp-process .process-cell{height:95px;margin-bottom:0px;background:url('image/30down.png') no-repeat center bottom;}
+#yp-process .process-cell{height:95px;margin-bottom:0px;background:url('../images/30down.png') no-repeat center bottom;}
 #yp-process .process-cell img{width:50px;margin-bottom:-10px;}
 #yp-process #four{background:none;}
 /* added by JacobWay */

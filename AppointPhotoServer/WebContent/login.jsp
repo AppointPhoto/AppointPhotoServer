@@ -43,8 +43,8 @@ var _hmt = _hmt || [];
         <!-- <input class="form_put  J_city validate[required,custom[phone]]" id="name" name="name" type="text" placeholder="手机号码">
         <input type="password" class="form_put validate[required,minSize[6]]" id="password" name="password"> -->
         
-        <input type="text"  class="form_put" id="name" name="name" >
-        <input type="password" class="form_put" id="password" name="password"> 
+        <input type="text"  class="form_put" id="name" name="name" placeholder="用户名：" >
+       <input type="password" class="form_put" id="password" name="password" placeholder=" 密码："> 
         
         <div class="cz">
          <label class="fl"><input type="checkbox" value="" class="checkbox">记住密码</label>
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
      </form>
      <p>还没有约拍账户？</p>
      <p>注册只需一分钟，即可享受全站服务</p>
-     <p><a href="register�source=user&amp;from=.html">立即注册</a></p>
+     <p><a href="userRegister.jsp">立即注册</a></p>
    </div><!--user_reg_n end-->
 </div><!--user_reg-->
 

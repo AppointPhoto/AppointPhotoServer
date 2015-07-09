@@ -26,18 +26,18 @@ public class UserRegisterAction extends ActionSupport {
 	private String emailAddress;
 	private String phoneNum;
 	private int level;
-	private String teString;
+	
 
 	public String registerUser() throws Exception {
 
-		System.out.println("pass1" + password);
-		System.out.println("pass2" + password2);
-		
+		System.out.println("pass1:" + password);
+		System.out.println("pass2:" + password2);
+		System.out.println("name:" + name);
+		System.out.println("phone:" + phoneNum);
 		
 		HttpServletRequest request =ServletActionContext.getRequest();
 		
-		teString=(String)request.getAttribute("testString");
-		System.out.println("testString:"+teString);
+		
 		// 檢查2次輸入密碼正確
 		if (password.equals(password2)) {
 			User u = new User();
@@ -129,13 +129,6 @@ public class UserRegisterAction extends ActionSupport {
 		this.level = level;
 	}
 
-	@JSON(serialize = false)
-	public String getTeString() {
-		return teString;
-	}
-
-	public void setTeString(String teString) {
-		this.teString = teString;
-	}
+	
 
 }
