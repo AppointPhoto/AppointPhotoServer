@@ -2,9 +2,7 @@
     pageEncoding="utf-8"%>
 
 <%
-
  String basePath=application.getRealPath("/");
-
 %>
 <html>
 <head>
@@ -14,7 +12,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="description" content="约拍是中国首家摄影服务的O2O平台, 登陆浙江卫视《天生我有才》栏目。直接预约摄影师，为您提供个性化的专业摄影服务。新生儿/满月/百天上门拍摄服务，儿童特色外景纪实拍摄。约拍 – 约摄影师，拍我想拍!">
 <meta name="keywords" content="摄影师,孕妈照,满月照,百天照,上门拍照,孕妈写真,儿童摄影">
-<title>约拍 - 摄影服务O2O平台:满月照|百天照|儿童外景纪实跟拍 – 约摄影师，拍我想拍!
+<title>随影!
 </title><link href="css/base.css" rel="stylesheet" type="text/css">
 <link href="css/home.css" rel="stylesheet" type="text/css">
 <link rel="Shortcut Icon" href="http://cdn.51yuepai.com/static/fav.ico" />
@@ -52,7 +50,7 @@ A.info:hover    {color:green;background:transparent;text-decoration:underline}
        
      </div>
           <div class="default">
-        <span class="user"><b class="user_icon"></b><a href="http://www5.51yuepai.com/user/login">用户登录</a></span>
+        <span class="user"><b class="user_icon"></b><a href="login.jsp">用户登录</a></span>
         <span class="photo"><b class="photo_icon"></b><a href="http://www5.51yuepai.com/user/register?source=photographer">摄影师注册</a> | <a href="http://www5.51yuepai.com/user/login?source=photographer">登录</a></span>
      </div>
             </div><!--header_yp end-->
