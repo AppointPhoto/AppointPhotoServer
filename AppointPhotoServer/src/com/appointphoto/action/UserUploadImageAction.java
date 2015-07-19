@@ -55,19 +55,29 @@ public class UserUploadImageAction extends ActionSupport {
             if(makeUserDir(getSavePath() + "/" + name)&&saveUserPictures(filePath1, image1)&&saveUserPictures(filePath2, image2)){
             	System.out.println("文件上传成功");  
             }
+            System.out.println("name:"+name);
             User user =um.getUserWithname(name);
+            System.out.println(3);
             UserPictures picture1 = new UserPictures();
             picture1.setCaptain(fileName1);
             picture1.setUser(user);
             picture1.setuId(user.getId());
+            System.out.println(1);
             um.addUserPictures(picture1);
+            System.out.println(2);
+            
+            UserPictures picture2 = new UserPictures();
+            picture2.setCaptain(fileName2);
+            picture2.setUser(user);
+            picture2.setuId(user.getId());
+            um.addUserPictures(picture2);
             
             //picture1.setUser(user);
             
         } catch (Exception e) {  
-            System.out.println("文件上传失败");  
-            e.printStackTrace(); 
-            return ERROR;
+            System.out.println("文件上传失败\n"+e.toString());  
+            
+            //return ERROR;
         } finally {  
             close(fos, fis);  
         }  
@@ -76,15 +86,18 @@ public class UserUploadImageAction extends ActionSupport {
     
     //创建用户目录
     public boolean makeUserDir(String fileDir) {
+    	Boolean flag=false;
     	File file =new File(fileDir);
     	if (!file.isDirectory()||!file.exists())      
     	{         	      
-    	    file.mkdir();    
+    	    file.mkdir();   
+    	    flag=true;
     	} else   
     	{  
     	    System.out.println("//目录存在");  
+    	    flag=true;
     	}  
-    	return true;
+    	return flag;
     }
     
     public boolean saveUserPictures(String filePath ,File file) {

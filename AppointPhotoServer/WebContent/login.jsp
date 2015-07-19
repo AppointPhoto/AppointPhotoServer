@@ -36,7 +36,7 @@ var _hmt = _hmt || [];
  </div>
 <div class="user_reg">
    <div class="user_reg_n">
-      <h5><span>登录到您的约拍</span></h5>
+      <h5><span>登录到您的随影</span></h5>
       <form id="login_form" action="userLoginAction.action" method="post" class="user_form">
         <!--<input  type="text" placeholder="手机号码" class="form_put" />
         <input  type="password" placeholder="登录密码" class="form_put" />-->
@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
        <li class="last">
         <div class="title"><b class="kfxx"></b>客服信息</div>
         <span><b class="phone_icon"></b>400-072-0672</span>
-        <span><b class="emil_icon"></b>service@xiguateng.cn</span>
+        <span><b class="emil_icon"></b>beyondliangcai@163.com</span>
         <span class="time_kf">（周一至周五9：00-20：00）</span>
         <span class="time_kf tl">（周六日及法定节假日9：00-18：00）</span>
        </li>

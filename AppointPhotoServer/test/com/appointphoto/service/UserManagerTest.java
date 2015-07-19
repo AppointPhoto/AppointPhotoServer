@@ -52,4 +52,17 @@ public class UserManagerTest {
 		//um.addUser(u);
 		um.addUserPictures(pictures);
 	}
+	
+	@Test
+	public void saveUserPictures() {
+		ApplicationContext ctx=(ApplicationContext) new ClassPathXmlApplicationContext("beans.xml");
+		UserManager um=(UserManager)ctx.getBean("UserManager");
+		 User user =um.getUserWithname("beyond");
+         
+         UserPictures picture1 = new UserPictures();
+         picture1.setCaptain("test");
+         picture1.setUser(user);
+         picture1.setuId(user.getId());
+         um.addUserPictures(picture1);
+	}
 }
