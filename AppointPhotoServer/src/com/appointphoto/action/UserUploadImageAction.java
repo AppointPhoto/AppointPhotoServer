@@ -55,16 +55,13 @@ public class UserUploadImageAction extends ActionSupport {
             if(makeUserDir(getSavePath() + "/" + name)&&saveUserPictures(filePath1, image1)&&saveUserPictures(filePath2, image2)){
             	System.out.println("文件上传成功");  
             }
-            System.out.println("name:"+name);
             User user =um.getUserWithname(name);
-            System.out.println(3);
+            
             UserPictures picture1 = new UserPictures();
             picture1.setCaptain(fileName1);
             picture1.setUser(user);
             picture1.setuId(user.getId());
-            System.out.println(1);
             um.addUserPictures(picture1);
-            System.out.println(2);
             
             UserPictures picture2 = new UserPictures();
             picture2.setCaptain(fileName2);
