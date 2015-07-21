@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.appointphoto.model.CheckUser;
 import com.appointphoto.model.User;
 import com.appointphoto.model.UserPictures;
 
@@ -64,5 +65,17 @@ public class UserManagerTest {
          picture1.setUser(user);
          picture1.setuId(user.getId());
          um.addUserPictures(picture1);
+	}
+	
+	@Test
+	public void saveCheckUser() {
+		ApplicationContext ctx=(ApplicationContext) new ClassPathXmlApplicationContext("beans.xml");
+		UserManager um=(UserManager)ctx.getBean("UserManager");
+		User user =um.getUserWithname("beyond");
+        CheckUser checkUser =new CheckUser();
+        checkUser.setStatus(1);
+        checkUser.setUser(user);
+       checkUser.setuId(user.getId());
+        um.addCheckUser(checkUser);
 	}
 }

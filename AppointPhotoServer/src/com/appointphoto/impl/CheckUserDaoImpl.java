@@ -6,14 +6,16 @@ import javax.persistence.criteria.From;
 
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
+import com.appointphoto.dao.CheckUserDao;
 import com.appointphoto.dao.UserDao;
 import com.appointphoto.dao.UserPicturesDao;
+import com.appointphoto.model.CheckUser;
 import com.appointphoto.model.User;
 import com.appointphoto.model.UserPictures;
 
 
 
-public class UserPicturesDaoImpl implements UserPicturesDao {
+public class CheckUserDaoImpl implements CheckUserDao {
 	HibernateTemplate hibernateTemplate;
 
 	public HibernateTemplate getHibernateTemplate() {
@@ -25,8 +27,8 @@ public class UserPicturesDaoImpl implements UserPicturesDao {
 	}
 
 	@Override
-	public void add(UserPictures picture) {
-		hibernateTemplate.save(picture);
+	public void add(CheckUser checkUser) {
+		hibernateTemplate.save(checkUser);
 	}	
 
 	

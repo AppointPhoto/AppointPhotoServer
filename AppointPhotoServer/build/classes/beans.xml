@@ -28,6 +28,7 @@
 			<list>
 				<value>com.appointphoto.model.User</value>
 				<value>com.appointphoto.model.UserPictures</value>
+				<value>com.appointphoto.model.CheckUser</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -69,10 +70,14 @@
 	<bean id="UserPicturesDaoImpl" class="com.appointphoto.impl.UserPicturesDaoImpl">
 		<property name="hibernateTemplate" ref="MyHibernateTemplate"></property>
 	</bean>
+	<bean id="CheckUserDaoImpl" class="com.appointphoto.impl.CheckUserDaoImpl">
+		<property name="hibernateTemplate" ref="MyHibernateTemplate"></property>
+	</bean>
 
 	<bean id="UserManager" class="com.appointphoto.service.UserManager">
 		<property name="userDao" ref="UserDaoImpl" />
 		<property name="userPicturesDao" ref="UserPicturesDaoImpl" />
+		<property name="checkUserDao" ref="CheckUserDaoImpl" />
 	</bean>
 
 </beans>

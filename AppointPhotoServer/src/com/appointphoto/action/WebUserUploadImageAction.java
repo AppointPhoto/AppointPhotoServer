@@ -122,12 +122,13 @@ public class WebUserUploadImageAction extends ActionSupport {
 	    	File file =new File(fileDir);
 	    	if (!file.isDirectory()||!file.exists())      
 	    	{         	      
-	    	    file.mkdir();   
+	    	    file.mkdir();  	    
 	    	    setPathRoot(fileDir);
 	    	    flag=true;
 	    	} else   
 	    	{  
 	    	    System.out.println("//目录存在");  
+	    	    setPathRoot(fileDir);
 	    	    flag=true;
 	    	}  
 	    	return flag;
@@ -138,7 +139,7 @@ public class WebUserUploadImageAction extends ActionSupport {
 	    	System.out.println("file:"+ file.getName());
 	    	System.out.println("fileName:"+ fileName);
 	    	FileOutputStream fos = null;  
-	         FileInputStream fis = null; 
+	        FileInputStream fis = null; 
 	    	try {
 	    		System.out.println("获取Android端传过来的普通信息：");  
 	            //System.out.println("用户名："+request.getParameter("username"));  

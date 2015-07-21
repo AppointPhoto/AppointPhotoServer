@@ -23,7 +23,7 @@ public class UserLoginAction extends ActionSupport {
 		System.out.println(um.getClass().getName());
 		System.out.println("name:"+user.getName());
 		System.out.println("password:"+user.getPassword());
-		if(um.userExists(user)){
+		if(um.userExists(user) && password.equals(um.getUserWithname(name).getPassword())){
 			result=SUCCESS;
 		}
 		else {

@@ -1,7 +1,9 @@
 package com.appointphoto.service;
 
+import com.appointphoto.dao.CheckUserDao;
 import com.appointphoto.dao.UserDao;
 import com.appointphoto.dao.UserPicturesDao;
+import com.appointphoto.model.CheckUser;
 import com.appointphoto.model.User;
 import com.appointphoto.model.UserPictures;
 
@@ -10,6 +12,7 @@ import com.appointphoto.model.UserPictures;
 public class UserManager {
 private UserDao userDao;
 private UserPicturesDao userPicturesDao;
+private CheckUserDao checkUserDao;
 
 public UserDao getUserDao() {
 	return userDao;
@@ -34,6 +37,10 @@ public void addUserPictures(UserPictures picture) {
 	userPicturesDao.add(picture);;
 }
 
+public void addCheckUser(CheckUser checkUser) {
+	checkUserDao.add(checkUser);
+}
+
 public boolean userExists(User u) {
 	return userDao.checkUserExistsWithName(u.getName());
 }
@@ -44,5 +51,13 @@ public boolean userNameExists(String name) {
 
 public User getUserWithname(String name){
 	return userDao.getUserWithName(name);
+}
+
+public CheckUserDao getCheckUserDao() {
+	return checkUserDao;
+}
+
+public void setCheckUserDao(CheckUserDao checkUserDao) {
+	this.checkUserDao = checkUserDao;
 }
 }

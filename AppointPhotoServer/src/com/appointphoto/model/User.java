@@ -10,13 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="_User")
 public class User {
-	private int id;
+	private long id;
 	private String name;
 	private int sex;
 	
@@ -30,14 +32,16 @@ public class User {
 	//用戶對應的圖片@one to many
 	private Set<UserPictures> pictures=new HashSet<UserPictures>();	
 	
-
+	//对应的审核用户
+	private CheckUser checkuser;
+	
 	@Id
 	@GeneratedValue
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	
@@ -119,6 +123,18 @@ public class User {
 
 	public void setPictures(Set<UserPictures> pictures) {
 		this.pictures = pictures;
+	}
+
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@PrimaryKeyJoinColumn
+	public CheckUser getCheckuser() {
+		return checkuser;
+	}
+
+	
+	public void setCheckuser(CheckUser checkuser) {
+		this.checkuser = checkuser;
 	}
 
 }

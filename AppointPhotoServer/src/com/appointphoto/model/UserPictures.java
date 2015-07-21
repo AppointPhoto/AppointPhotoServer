@@ -11,26 +11,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name="_U_Photo")
 public class UserPictures {
-	private int id;
-	private int uId;
+	private long id;
+	private long uId;
 	private String captain;
 	private String pic;	
 	private User user;
 	
 	@Id
 	@GeneratedValue
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	
 	
-	public int getuId() {
+	public long getuId() {
 		return uId;
 	}
-	public void setuId(int uId) {
+	public void setuId(long uId) {
 		this.uId = uId;
 	}
 	public String getCaptain() {
