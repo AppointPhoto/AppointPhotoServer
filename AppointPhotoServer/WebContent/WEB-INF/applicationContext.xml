@@ -83,5 +83,9 @@
      <bean id="userUploadImageAction" class="com.appointphoto.action.UserUploadImageAction" scope="prototype">
         <property name="um" ref="UserManager"></property>
     </bean>
+    
+    <bean id="webUserUploadImageAction" class="com.appointphoto.action.WebUserUploadImageAction" scope="prototype">
+        <property name="um" ref="UserManager"></property>
+    </bean>
 </beans>
 	 

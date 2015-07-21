@@ -74,4 +74,5 @@
 		<property name="userDao" ref="UserDaoImpl" />
 		<property name="userPicturesDao" ref="UserPicturesDaoImpl" />
 	</bean>
+
 </beans>

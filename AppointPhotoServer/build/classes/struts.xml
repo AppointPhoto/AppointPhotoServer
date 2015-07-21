@@ -71,6 +71,16 @@
                 -->
             </interceptor-ref>
         </action>
+        
+        <action name="WebUserUploadImageAction" method="execute" class="webUserUploadImageAction">
+            <param name="pathRoot">/home/beyond/GitHubSrc/UserPictures</param>
+      		 <result name="success">
+				/SuccessRegistration.jsp
+			</result>
+			<result name="fail">
+				/ErrorRegistration.jsp
+			</result>
+        </action>
 	</package>
 
 </struts>
