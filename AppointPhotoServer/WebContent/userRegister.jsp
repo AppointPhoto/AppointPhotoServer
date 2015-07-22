@@ -63,7 +63,7 @@ var _hmt = _hmt || [];
   <dl>
    <dt class="settled">
       <div class="title"><b class="sett"></b>摄影师入驻申请</div>
-      <a href="register�source=photographer.html">我要申请</a>
+      <a href="WebUploadFile.jsp">我要申请</a>
    </dt>
    <dd>
      <ul>

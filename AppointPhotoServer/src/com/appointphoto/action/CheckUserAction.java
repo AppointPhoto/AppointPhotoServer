@@ -46,6 +46,7 @@ public String checkUser(){
 	user=um.getUserWithname("beyond");
 	List<CheckUser> checkUsers=um.getAllCheckUsers();
 	List<UserPictures> userPictures;
+	
 	System.out.println("checkuser num:"+checkUsers.size());
 	
 	//用户名字和对应的UserPictures

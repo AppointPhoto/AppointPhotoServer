@@ -6,12 +6,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>jQuery图片异步加载和预加载功能DEMO演示</title>
+    <title>审查摄影师资格</title>
     <link type="text/css" href="css/css.css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jQuery.asyncLoading.js"></script>
 </head>
 <body>
+ <%
+    int fileNum = 0;  
+    
+    String dataMap = (String)request.getAttribute("dataMap");
+    //out.print(dataMap);
+    
+    %>
 	<div id="content">
     	<div id="button">
         	<ul>
@@ -22,24 +29,32 @@
         </div>
         <div id="image"></div>
     </div>
-    <%
-    int fileNum = 0, folderNum = 0;  
-    
-    
-    %>
+   
     
     <script type="text/javascript">
     	$(function() {
 			//把图片写入htm
-			var imgArr = "";
-			
-			
-			for(var i = 1; i <= 25; i++) {
-				if(i <= 25) {//因上传到17素材超过规定大小，不得不将过多的图片略去，为了达到更好的效果，可以自行修改此循环代码，并且增加其余图片，体验异步加载
-					imgArr += '<img class="scrollLoading" data-url="image/'+ i +'.jpg" src="image/grey.gif" />';
-				} else {
-					imgArr += '<img class="scrollLoading" data-url="image/13.jpg" src="image/grey.gif" />';  //超过26张后显示的图片
-				}
+			//alert("123")
+			var imgArr = ""
+			//服务器保存上传图片的虚拟地址
+			var imgPathRoot="http://localhost:8080/UserPicture/"
+			var imgPath
+
+			var data='<%=dataMap%>'
+			alert(data)
+			var dataobj=eval("("+data+")")
+			//Console.output("dataobj.constructor"+ dataobj.constructor) 		  
+					 
+			alert("name:"+dataobj.json[0].beyond[2].pic)	
+		    //var test=eval(dataobj.json[0].beyond)
+		    //alert("dataobj.json[0].beyond:"+dataobj.json[0].beyond)
+		    
+			alert("length:"+dataobj.json[0].beyond.length)
+			for(var i=0 ; i<dataobj.json[0].beyond.length ; i++) {
+				//alert("name:" + imgPathRoot + dataobj.json[0].beyond[i].captain)
+				imgPath=imgPathRoot+ dataobj.json[0].beyond[i].captain
+				imgArr += '<img class="scrollLoading" data-url="'+ imgPath + '" src="image/grey.gif" />';
+				
 			}
 			$("#image").append(imgArr);
 			$("img").load(function () {
