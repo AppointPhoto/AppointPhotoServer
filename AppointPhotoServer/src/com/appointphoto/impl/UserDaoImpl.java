@@ -50,4 +50,11 @@ public class UserDaoImpl implements UserDao {
 			return null;
 		}
 	}
+
+	@Override
+	public User getUserWithId(long id) {
+		List<User>users=(List<User>)hibernateTemplate.find("from User u where u.id='"+ id +"'");
+		
+		return users.get(0);
+	}
 }

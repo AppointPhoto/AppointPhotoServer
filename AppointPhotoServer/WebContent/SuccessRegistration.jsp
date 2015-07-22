@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-success!
+success! <br>
+<a href="CheckUserAction.action">µ¥»÷</a><br/>
 </body>
 </html>

@@ -81,6 +81,15 @@
 				/ErrorRegistration.jsp
 			</result>
         </action>
+        
+            <action name="CheckUserAction" method="checkUser" class="checkUserAction">
+      		 <result name="success">
+				/CheckUser.jsp
+			</result>
+			<result name="fail">
+				/ErrorRegistration.jsp
+			</result>
+        </action>
 	</package>
 
 </struts>

@@ -27,7 +27,17 @@ public class UserPicturesDaoImpl implements UserPicturesDao {
 	@Override
 	public void add(UserPictures picture) {
 		hibernateTemplate.save(picture);
-	}	
+	}
+
+	@Override
+	public List<UserPictures> queryByUsername(long uId) {
+		List<UserPictures> userPictures ;
+		userPictures=(List<UserPictures>)hibernateTemplate.find("from UserPictures userpictures where userpictures.uId=" + uId + "");
+		
+		return userPictures;
+	}
+
+	
 
 	
 }

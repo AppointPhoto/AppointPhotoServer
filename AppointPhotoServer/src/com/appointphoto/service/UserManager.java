@@ -1,5 +1,7 @@
 package com.appointphoto.service;
 
+import java.util.List;
+
 import com.appointphoto.dao.CheckUserDao;
 import com.appointphoto.dao.UserDao;
 import com.appointphoto.dao.UserPicturesDao;
@@ -53,11 +55,25 @@ public User getUserWithname(String name){
 	return userDao.getUserWithName(name);
 }
 
+public User getUserWithId(long id){
+	return userDao.getUserWithId(id);
+}
+
 public CheckUserDao getCheckUserDao() {
 	return checkUserDao;
 }
 
 public void setCheckUserDao(CheckUserDao checkUserDao) {
 	this.checkUserDao = checkUserDao;
+}
+
+//返回CheckUser表里所有信息
+public List<CheckUser> getAllCheckUsers(){
+	return checkUserDao.queryAll();
+}
+
+//通过uid返回UserPictures表里所有信息
+public List<UserPictures> getUserPicturesByUid(long uId){
+	return userPicturesDao.queryByUsername(uId);
 }
 }

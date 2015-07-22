@@ -40,7 +40,7 @@ public class CheckUser {
 		this.status = status;
 	}
 	
-	@OneToOne(cascade=CascadeType.ALL , mappedBy="checkuser")
+	@OneToOne(cascade=CascadeType.ALL , mappedBy="checkuser" ,fetch=FetchType.EAGER)
 	public User getUser() {
 		return user;
 	}

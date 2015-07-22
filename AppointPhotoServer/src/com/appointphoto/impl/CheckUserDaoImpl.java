@@ -29,6 +29,16 @@ public class CheckUserDaoImpl implements CheckUserDao {
 	@Override
 	public void add(CheckUser checkUser) {
 		hibernateTemplate.save(checkUser);
+	}
+
+	@Override
+	public List<CheckUser> queryAll() {
+		List<CheckUser> checkUsers;
+		
+		checkUsers= (List<CheckUser>)hibernateTemplate.find("from CheckUser checkUser");
+		//System.out.println("checkuser num:"+ checkUsers.size());
+		
+		return checkUsers;
 	}	
 
 	
