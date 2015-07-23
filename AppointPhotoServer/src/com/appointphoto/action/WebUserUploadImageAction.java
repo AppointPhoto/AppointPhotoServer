@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 
 import com.appointphoto.dto.UserRegisterDto;
+import com.appointphoto.model.CheckUser;
 import com.appointphoto.model.User;
 import com.appointphoto.model.UserPictures;
 import com.appointphoto.service.UserManager;
@@ -96,17 +97,29 @@ public class WebUserUploadImageAction extends ActionSupport {
 	    {	        
 	        User user;
 	        UserPictures userPictures=new UserPictures();
+	        if(makeUserDir(getPathRoot() + "/" + username)){
+	        	setPathRoot(getPathRoot() + "/" + username);
+	        }
 	        for(int i = 0; i < file.size(); i++)
 	        {
-	        	 if(makeUserDir(getPathRoot() + "/" + username)&&saveUserPictures(fileFileName.get(i),getPathRoot(), file.get(i))){
-	             	System.out.println("文件上传成功");  	
-	             	user=um.getUserWithname("beyond");
+	        	 if(saveUserPictures(fileFileName.get(i),getPathRoot(), file.get(i))){
+	             	
+	        		System.out.println("文件上传成功");  	
+	             	user=um.getUserWithname(username);
 	             	System.out.println("id:"+user.getId());
 	             	userPictures.setUser(user);
 	             	userPictures.setPic(pathRoot);
 	             	userPictures.setuId(user.getId());
 	             	userPictures.setCaptain(fileFileName.get(i));
+	             	
+	             	CheckUser checkUser=new CheckUser();
+	             	checkUser.setuId(user.getId());
+	             	System.out.println("uid:"+ checkUser.getuId());
+	             	checkUser.setStatus(1);
+	             	checkUser.setUser(user);
+	             	
 	             	um.addUserPictures(userPictures);
+	             	um.addCheckUser(checkUser);
 	             }
 	            else {
 					return ERROR;
@@ -123,12 +136,12 @@ public class WebUserUploadImageAction extends ActionSupport {
 	    	if (!file.isDirectory()||!file.exists())      
 	    	{         	      
 	    	    file.mkdir();  	    
-	    	    setPathRoot(fileDir);
+	    	    
 	    	    flag=true;
 	    	} else   
 	    	{  
 	    	    System.out.println("//目录存在");  
-	    	    setPathRoot(fileDir);
+	    	    
 	    	    flag=true;
 	    	}  
 	    	return flag;

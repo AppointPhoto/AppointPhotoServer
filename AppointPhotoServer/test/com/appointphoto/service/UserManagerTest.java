@@ -2,7 +2,9 @@ package com.appointphoto.service;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Assert;
@@ -46,7 +48,7 @@ public class UserManagerTest {
 		pictures.setCaptain("test");
 		pictures.setuId(2);
 		pictures.setPic("/home/beyond/GitHubSrc/UserPictures/beyond/test2.jpg");
-		Set<UserPictures> set=new HashSet<UserPictures>();
+		List<UserPictures> set=new ArrayList<UserPictures>();
 		set.add(pictures);
 //		u.getPictures().add(pictures);
 		u.setPictures(set);

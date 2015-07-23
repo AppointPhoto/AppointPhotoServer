@@ -2,6 +2,7 @@ package com.appointphoto.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -46,7 +47,7 @@ public class UserPictures {
 		this.pic = pic;
 	}
 	
-	@ManyToOne(cascade=CascadeType.REFRESH,optional=false)
+	@ManyToOne(cascade=CascadeType.REFRESH,optional=false,fetch=FetchType.LAZY)
 	@JoinColumn(name="uId", referencedColumnName="id",nullable=false,insertable=false, updatable=false)
 	//@JoinColumn(name="uId",insertable=false, updatable=false)
 	public User getUser() {

@@ -1,7 +1,9 @@
 package com.appointphoto.action;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,24 +18,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 
-
-
-
-
-
-
-
-
-
-
 import com.appointphoto.dto.UserLoginDto;
 import com.appointphoto.model.CheckUser;
 import com.appointphoto.model.User;
 import com.appointphoto.model.UserPictures;
 import com.appointphoto.service.UserManager;
+import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.sun.javafx.collections.MappingChange.Map;
+import com.sun.org.apache.xml.internal.security.Init;
 
 public class CheckUserAction extends ActionSupport {
 	
@@ -41,27 +35,35 @@ public class CheckUserAction extends ActionSupport {
 	public UserManager um;
 	
 public String checkUser(){
-	//假设传过来的user名叫beyond
 	
-	user=um.getUserWithname("beyond");
+	//CheckUser表里的所有用户信息
 	List<CheckUser> checkUsers=um.getAllCheckUsers();
 	List<UserPictures> userPictures;
-	
+	List<User> users = new ArrayList<User>() ;
 	System.out.println("checkuser num:"+checkUsers.size());
+	User temp;
+	
+	Gson gson=new Gson();	
 	
 	//用户名字和对应的UserPictures
 	HashMap<String, List<UserPictures>> dataMap =new HashMap<String,List<UserPictures>>();
-	
 	//用户申请的状态的唯一的，保证checkuser表里的uid是唯一的
 	for (CheckUser checkUser : checkUsers) {
-		
-		dataMap.put(um.getUserWithId(checkUser.getuId()).getName() , um.getUserPicturesByUid(checkUser.getuId()));
+		temp=um.getUserWithId(checkUser.getuId());
+		System.out.println("name:"+temp.getName());
+		temp.setPictures(um.getUserPicturesByUid(checkUser.getuId()));
+		System.out.println("length:"+temp.getPictures().size());
+		users.add(temp);
+
+		//dataMap.put(um.getUserWithId(checkUser.getuId()).getName() ,um.getUserPicturesByUid(checkUser.getuId()) );
 	}
-	
+
+	String jsonUsers = gson.toJson(users);
+	System.out.println(jsonUsers);
 	
 	//System.out.println("count checkusers:"+checkUsers.size());
 	HttpServletRequest request=ServletActionContext.getRequest();	
-	JSONObject jsonObject=new JSONObject();
+	/*JSONObject jsonObject=new JSONObject();
 	
 	JsonConfig jsonConfig = new JsonConfig(); //建立配置文件
 	//jsonConfig.setIgnoreDefaultExcludes(false); //设置默认忽略
@@ -71,8 +73,8 @@ public String checkUser(){
 	JSONArray jsonArray = JSONArray.fromObject(dataMap,jsonConfig); //加载配置文件
 	
 	jsonObject.accumulate("json", jsonArray);
-	System.out.println("json:"+jsonObject.toString());
-	request.setAttribute("dataMap", jsonObject.toString());
+	System.out.println("json:"+jsonObject.toString());*/
+	request.setAttribute("jsonUsers", jsonUsers.toString());
 	
 	
 	return SUCCESS;

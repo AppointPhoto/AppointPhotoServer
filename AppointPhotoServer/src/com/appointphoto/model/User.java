@@ -1,6 +1,8 @@
 package com.appointphoto.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -30,7 +32,7 @@ public class User {
 	private int level;
 	
 	//用戶對應的圖片@one to many
-	private Set<UserPictures> pictures=new HashSet<UserPictures>();	
+	private List<UserPictures> pictures=new ArrayList<UserPictures>();	
 	
 	//对应的审核用户
 	private CheckUser checkuser;
@@ -113,15 +115,15 @@ public class User {
 		this.location = location;
 	}
 
-	@OneToMany(mappedBy="user" ,cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="user" ,cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	//@JoinColumn(name="id")
 	@OrderBy(value= "id ASC")
-	public Set<UserPictures> getPictures() {
+	public List<UserPictures> getPictures() {
 		return pictures;
 	}
 
 
-	public void setPictures(Set<UserPictures> pictures) {
+	public void setPictures(List<UserPictures> pictures) {
 		this.pictures = pictures;
 	}
 

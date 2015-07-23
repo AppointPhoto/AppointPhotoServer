@@ -11,4 +11,6 @@ import com.appointphoto.model.UserPictures;
 public interface CheckUserDao {
 	public void add(CheckUser checkUser);
 	public List<CheckUser> queryAll();
+	
+	public boolean checkCheckUserExistsWithuId(long uId);
 }

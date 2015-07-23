@@ -28,7 +28,13 @@ public class CheckUserDaoImpl implements CheckUserDao {
 
 	@Override
 	public void add(CheckUser checkUser) {
-		hibernateTemplate.save(checkUser);
+		if (checkCheckUserExistsWithuId(checkUser.getuId())) {
+			System.out.println("checkUser has already exist!");
+		}
+		else {
+			hibernateTemplate.save(checkUser);	
+		}
+		
 	}
 
 	@Override
@@ -39,6 +45,16 @@ public class CheckUserDaoImpl implements CheckUserDao {
 		//System.out.println("checkuser num:"+ checkUsers.size());
 		
 		return checkUsers;
+	}
+
+	@Override
+	public boolean checkCheckUserExistsWithuId(long uId) {
+
+		List<CheckUser>checkUsers=(List<CheckUser>)hibernateTemplate.find("from CheckUser checkUser where checkUser.uId='"+ uId +"'");
+		if (checkUsers!=null && checkUsers.size()!=0) {
+			return true;
+		}
+		return false;
 	}	
 
 	

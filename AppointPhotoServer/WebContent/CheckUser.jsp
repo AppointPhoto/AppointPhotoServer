@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
    <%@ page import="java.io.*"   %>
    <%@ page import="java.util.*"   %>
+   <%@ page import="com.appointphoto.model.*"   %>
+   <%@ page import="com.google.gson.*"   %>
+   <%@ page import="java.lang.reflect.Type"   %>
+    <%@ page import="com.google.gson.reflect.TypeToken"%>
+  
+  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,10 +20,18 @@
 <body>
  <%
     int fileNum = 0;  
+    String dataMap = (String)request.getAttribute("jsonUsers");
+    String jsonString = (String)request.getAttribute("jsonUsers");
+    Gson jsonUsers=new Gson();
     
-    String dataMap = (String)request.getAttribute("dataMap");
-    //out.print(dataMap);
+    Type type= new TypeToken<List<User>>(){
+    	
+    }.getType();
     
+    List <User> users =jsonUsers.fromJson(jsonString, type);
+    
+    out.print("user size:"+users.size());
+    out.print("userpicture2 size:"+users.get(1).getPictures().size());
     %>
 	<div id="content">
     	<div id="button">
@@ -42,14 +56,14 @@
 
 			var data='<%=dataMap%>'
 			alert(data)
-			var dataobj=eval("("+data+")")
+			var dataobj=eval("("+data.json+")")
 			//Console.output("dataobj.constructor"+ dataobj.constructor) 		  
 					 
-			alert("name:"+dataobj.json[0].beyond[2].pic)	
+			//alert("name:"+dataobj.json[0].beyond[2].pic)	
 		    //var test=eval(dataobj.json[0].beyond)
 		    //alert("dataobj.json[0].beyond:"+dataobj.json[0].beyond)
-		    
-			alert("length:"+dataobj.json[0].beyond.length)
+		    alert("dataobj:"+dataobj)
+			alert("length:"+dataobj.beyond.length)
 			for(var i=0 ; i<dataobj.json[0].beyond.length ; i++) {
 				//alert("name:" + imgPathRoot + dataobj.json[0].beyond[i].captain)
 				imgPath=imgPathRoot+ dataobj.json[0].beyond[i].captain
