@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <basehref="<%=basePath%>">
-<title>普通用户登录</title>
+<title>管理员登录</title>
 <link href="css/base.css" rel="stylesheet" type="text/css">
 <link href="css/index.css" rel="stylesheet" type="text/css">
 <link href="css/home.css" rel="stylesheet" type="text/css">
@@ -36,12 +36,8 @@ var _hmt = _hmt || [];
  </div>
 <div class="user_reg">
    <div class="user_reg_n">
-      <h5><span>登录到您的随影</span></h5>
-      <form id="login_form" action="userLoginAction.action" method="post" class="user_form">
-        <!--<input  type="text" placeholder="手机号码" class="form_put" />
-        <input  type="password" placeholder="登录密码" class="form_put" />-->
-        <!-- <input class="form_put  J_city validate[required,custom[phone]]" id="name" name="name" type="text" placeholder="手机号码">
-        <input type="password" class="form_put validate[required,minSize[6]]" id="password" name="password"> -->
+      <h5><span>登录您的管理员帐号</span></h5>
+      <form id="login_form" action="adminLoginAction.action" method="post" class="user_form">
         
         <input type="text"  class="form_put" id="name" name="name" placeholder="用户名：" >
        <input type="password" class="form_put" id="password" name="password" placeholder=" 密码："> 

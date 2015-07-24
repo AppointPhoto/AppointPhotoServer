@@ -25,7 +25,19 @@
 				result="exception" />
 		</action>
 		
-		<action name="userLoginAction" class="userLoginAction" method="checkUser">
+			<action name="adminLoginAction" class="adminLoginAction" method="execute">			
+            <result name="success" > 
+             /Admin.jsp
+             </result>
+             <result name="error" > 
+             /ErrorRegistration.jsp
+             </result>
+             <result name="exception">/Exception.jsp</result>
+			<exception-mapping exception="java.lang.Exception"
+				result="exception" />
+		</action>
+		
+		<action name="userLoginAction" class="userLoginAction" method="execute">
 			<!-- <interceptor-ref name="json">  
                 <param name="contentType">application/json</param>  
             </interceptor-ref>  
@@ -38,6 +50,7 @@
 				result="exception" />
 		</action>
 		
+	
 		
 		<action name="userRegisterAction" class="userRegisterAction" method="registerUser">
 			 <!--  <interceptor-ref name="json">  

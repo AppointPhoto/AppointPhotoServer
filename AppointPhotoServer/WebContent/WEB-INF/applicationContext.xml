@@ -84,6 +84,11 @@
 	<bean id="userLoginAction" class="com.appointphoto.action.UserLoginAction" scope="prototype">
         <property name="um" ref="UserManager"></property>
     </bean>
+    
+    <bean id="adminLoginAction" class="com.appointphoto.action.AdminLoginAction" scope="prototype">
+        <property name="um" ref="UserManager"></property>
+    </bean>
+    
     <bean id="userRegisterAction" class="com.appointphoto.action.UserRegisterAction" scope="prototype">
         <property name="um" ref="UserManager"></property>
     </bean>

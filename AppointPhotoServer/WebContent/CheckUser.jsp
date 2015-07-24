@@ -20,7 +20,6 @@
 <body>
  <%
     int fileNum = 0;  
-    String dataMap = (String)request.getAttribute("jsonUsers");
     String jsonString = (String)request.getAttribute("jsonUsers");
     Gson jsonUsers=new Gson();
     
@@ -53,20 +52,12 @@
 			//服务器保存上传图片的虚拟地址
 			var imgPathRoot="http://localhost:8080/UserPicture/"
 			var imgPath
-
-			var data='<%=dataMap%>'
-			alert(data)
-			var dataobj=eval("("+data.json+")")
-			//Console.output("dataobj.constructor"+ dataobj.constructor) 		  
-					 
-			//alert("name:"+dataobj.json[0].beyond[2].pic)	
-		    //var test=eval(dataobj.json[0].beyond)
-		    //alert("dataobj.json[0].beyond:"+dataobj.json[0].beyond)
-		    alert("dataobj:"+dataobj)
-			alert("length:"+dataobj.beyond.length)
-			for(var i=0 ; i<dataobj.json[0].beyond.length ; i++) {
+			var userNum=<%= users.size()%>
+			var userPictures1Size=<%=users.get(0).getPictures().size()%>
+		
+			for(var i=0 ; i<userPictures1Size ; i++) {
 				//alert("name:" + imgPathRoot + dataobj.json[0].beyond[i].captain)
-				imgPath=imgPathRoot+ dataobj.json[0].beyond[i].captain
+				imgPath=imgPathRoot+<%users.get(0).getName()%> +<%=users.get(0).getPictures().get(i).getCaptain()%>
 				imgArr += '<img class="scrollLoading" data-url="'+ imgPath + '" src="image/grey.gif" />';
 				
 			}
